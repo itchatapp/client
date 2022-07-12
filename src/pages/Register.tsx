@@ -5,18 +5,20 @@
 //     alert('Some information')
 // })
 
+// FIXME: Remove the next line once we use the login function
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const register = async (username: string, email: string, password: string): Promise<{ pending_verification: boolean }> => {
-    const res = await fetch('https://api-dev.itchat.world/auth/accounts/register', {
-        method: 'POST',
-        body: JSON.stringify({ username, email, password })
-    })
+	const res = await fetch('https://api-dev.itchat.world/auth/accounts/register', {
+		method: 'POST',
+		body: JSON.stringify({ username, email, password })
+	})
 
-    if (res.ok) return res.json()
+	if (res.ok) return res.json()
 
-    throw 'Email already taken?'
+	throw 'Email already taken?'
 }
 
 
 export const Register = () => {
-    return <>Register</>
+	return <>Register</>
 }

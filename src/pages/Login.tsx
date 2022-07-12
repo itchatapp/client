@@ -5,20 +5,22 @@
 //     alert('Some information')
 // })
 
+// FIXME: Remove the next line once we use the login function
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const login = async (email: string, password: string): Promise<string> => {
-    const res = await fetch('https://api-dev.itchat.world/auth/sessions', {
-        method: 'POST',
-        body: JSON.stringify({ email, password })
-    })
+	const res = await fetch('https://api-dev.itchat.world/auth/sessions', {
+		method: 'POST',
+		body: JSON.stringify({ email, password })
+	})
 
-    if (res.ok) return res.text()
+	if (res.ok) return res.text()
 
-    throw 'Invalid email or password'
+	throw 'Invalid email or password'
 }
 
 
 export const Login = () => {
-    return <>
+	return <>
        Login
-    </>
+	</>
 }

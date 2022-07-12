@@ -2,3 +2,4 @@ vscode:
   extensions:
     - bradlc.vscode-tailwindcss
     - streetsidesoftware.code-spell-checker
+    - dbaeumer.vscode-eslint

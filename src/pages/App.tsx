@@ -3,15 +3,15 @@ import { Sidebar } from '../components'
 import { useClient } from '../hooks'
 
 export const App = () => {
-    const client = useClient()
+	const client = useClient()
 
-    useEffect(() => {
-        const storedToken = localStorage.getItem('token')
-        client.login(storedToken!).catch(() => window.location.href = '/register')
-    }, [])
+	useEffect(() => {
+		const storedToken = localStorage.getItem('token')
+		client.login(storedToken!).catch(() => window.location.href = '/register')
+	}, [])
 
-    // TODO: Add loading screen
-    return <>
-        <Sidebar />
-    </>
+	// TODO: Add loading screen
+	return <>
+		<Sidebar />
+	</>
 }
