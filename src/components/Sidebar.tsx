@@ -2,6 +2,7 @@ import { useClient } from '../hooks'
 import { BsPlus } from 'react-icons/bs';
 import { FaHome } from 'react-icons/fa';
 import { useState } from 'preact/hooks';
+import { useEffect } from 'preact/hooks';
 
 const Divider = () => <hr class="sidebar-hr" />;
 
@@ -17,9 +18,10 @@ export const Sidebar = () => {
     const client = useClient();
     const [servers, setServers] = useState(client.servers.cache);
 
-    const update = () => setServers(client.servers.cache);
-
-    client.on('serverCreate', update).on('serverUpdate', update).on('serverDelete', update)
+    useEffect(() => {
+        const update = () => setServers(client.servers.cache)
+        client.on('serverCreate', update).on('serverUpdate', update).on('serverDelete', update)
+    }, [])
 
     return <div class="fixed top-0 left-0 h-screen w-16 flex flex-col bg-gray-900 shadow-lg">
         <Icon icon={<FaHome size="28" />} text="Direct Messages" />
